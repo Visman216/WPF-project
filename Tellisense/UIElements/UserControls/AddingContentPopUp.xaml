@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Tellisense.AddingContentPopUp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tellisense"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <Grid Background="#FFCBC3BE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Text="Title" Grid.Row="0" Margin="10 0 10 10"/>
+        <TextBox Text="Description" Grid.Row="1" Margin="10 0 10 10"/>
+        <StackPanel Margin="50" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+            <Button Width="100" Margin="0 0 5 0"/>
+            <Button Width="100" Margin="5 0 0 0"/>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

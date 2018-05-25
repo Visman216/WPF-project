@@ -1,0 +1,8 @@
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\obj\Debug\Tellisense.Data.csprojResolveAssemblyReference.cache
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\bin\Debug\Tellisense.Data.dll.config
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\bin\Debug\Tellisense.Data.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\bin\Debug\Tellisense.Data.pdb
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\bin\Debug\EntityFramework.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\bin\Debug\EntityFramework.xml
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\obj\Debug\Tellisense.Data.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Data\obj\Debug\Tellisense.Data.pdb

@@ -1,0 +1,119 @@
+﻿<Window x:Class="Tellisense.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tellisense"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        x:Name="AppWindow"
+        Title="MainWindow" Height="700" Width="1100">
+    
+    
+    <WindowChrome.WindowChrome>
+        <WindowChrome ResizeBorderThickness="{Binding ResizeBorderThickness}"
+                      CaptionHeight="{Binding TitleHeight}"
+                      GlassFrameThickness="0"/>
+    </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer border with the drop shadow margin -->
+                        <Border Padding="{Binding OuterMarginSize, FallbackValue=0}">
+
+                            <!-- MainWindow Outline -->
+                            <Grid>
+
+                                <Border x:Name="Container"
+                                        Background="{StaticResource BackgroundLightBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=0}"
+                                        />
+
+                                <!-- Maindow Border and Dropshadow -->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=0}"
+                                        Background="{Binding BackgroundLightBrush, FallbackValue=0}"
+                                        >
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" Opacity="1"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- Content Template -->
+                                <Grid>
+
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+
+                                    <!-- Content Markup -->
+                                    <Grid.RowDefinitions>
+
+                                        <!-- Title Bar Markup -->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
+
+                                        <!-- Window Content Markup -->
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Title Bar -->
+                                    <Grid Grid.Column="0" Panel.ZIndex="1" Background="#FF333337">
+
+                                        <!-- Title Bar Markup -->
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!-- Icon -->
+                                        <Button Grid.Column="0" Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
+                                            <!--<Image Source="/Resources/Images/logo.png" />-->
+                                        </Button>
+                                        <!-- Window Controls -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource StWindowControlButton}"  Content="{StaticResource FontAwesomeMin}"/>
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource StWindowControlButton}" Content="{StaticResource FontAwesomeMax}"/>
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource SpWindowControlButton}" Content="{StaticResource FontAwesomeX}"/>
+
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                    <!-- Window Content -->
+                                    <Border Grid.Row="1" BorderThickness="5 0 5 5"  BorderBrush="#FF333337" Padding="{Binding InnerContentPadding}" Background="#FFE0E9EC">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!-- Content -->
+    <DockPanel>
+
+        <Frame NavigationUIVisibility="Hidden" Panel.ZIndex="1" 
+               DockPanel.Dock="Top" x:Name="UserControl" 
+               Content="{Binding AppVM.CurrentControl, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:AppCtrlConverter}}"/>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" DockPanel.Dock="Right"
+                   Content="{Binding AppVM.CurrentPage, Source={x:Static local:ViewModelLocator.Instance}, Converter={local:AppPageValueConverter}}"/>
+
+        </ScrollViewer>
+
+    </DockPanel>
+</Window>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{09A9E528-62D9-455D-B1BE-DC9F522EE336}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tellisense.Core</RootNamespace>
+    <AssemblyName>Tellisense.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PropertyChanged2, Version=2.1.4.3, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged2.Fody.2.1.4.3\lib\portable-net40+sl50+win+wpa81+wp80\PropertyChanged2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppStateDefinitions\AppCtrl.cs" />
+    <Compile Include="AppStateDefinitions\AppPage.cs" />
+    <Compile Include="AppStateDefinitions\NavPriviledge.cs" />
+    <Compile Include="AppStateDefinitions\ProfileView.cs" />
+    <Compile Include="AppViewModels\ApplicationViewModel.cs" />
+    <Compile Include="AppViewModels\Base\BaseViewModel.cs" />
+    <Compile Include="AppViewModels\Base\RelayCommand.cs" />
+    <Compile Include="AppViewModels\Base\RelayParametrizedCommand.cs" />
+    <Compile Include="AppViewModels\HoldersViewModels\ForumSelectionItemViewModel.cs" />
+    <Compile Include="AppViewModels\HoldersViewModels\SubForumSelectionItemViewModel.cs" />
+    <Compile Include="AppViewModels\HoldersViewModels\PostBubbleViewModel.cs" />
+    <Compile Include="AppViewModels\HoldersViewModels\ThreadSelectionItemViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\ForumPageViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\GeneralPageViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\SignInViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\SignUpViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\SubFormPageViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\ThreadPageViewModel.cs" />
+    <Compile Include="AppViewModels\PagesViewModels\UserProfileViewModel.cs" />
+    <Compile Include="AppViewModels\UserControlsViewModels\AddingContentViewModel.cs" />
+    <Compile Include="AppViewModels\UserControlsViewModels\PositionNodeViewModel.cs" />
+    <Compile Include="AppViewModels\UserControlsViewModels\TopViewModel.cs" />
+    <Compile Include="IOC_Control\IOC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tellisense.Data\Tellisense.Data.csproj">
+      <Project>{4b2e0766-d04b-4609-a7c9-5293e77bbc0e}</Project>
+      <Name>Tellisense.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.2.3.21\build\Fody.targets" Condition="Exists('..\packages\Fody.2.3.21\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.2.3.21\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.2.3.21\build\Fody.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

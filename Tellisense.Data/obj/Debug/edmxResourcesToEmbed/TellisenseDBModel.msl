@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Tellisense_DatabaseModelStoreContainer" CdmEntityContainer="Tellisense_DatabaseEntities">
+    <EntitySetMapping Name="Forum">
+      <EntityTypeMapping TypeName="Tellisense_DatabaseModel.Forum">
+        <MappingFragment StoreEntitySet="Forum">
+          <ScalarProperty Name="forum_ID" ColumnName="forum_ID" />
+          <ScalarProperty Name="forum_Title" ColumnName="forum_Title" />
+          <ScalarProperty Name="forum_description" ColumnName="forum_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post">
+      <EntityTypeMapping TypeName="Tellisense_DatabaseModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="post_ID" ColumnName="post_ID" />
+          <ScalarProperty Name="date_posted" ColumnName="date_posted" />
+          <ScalarProperty Name="last_edited" ColumnName="last_edited" />
+          <ScalarProperty Name="poster" ColumnName="poster" />
+          <ScalarProperty Name="in_thread" ColumnName="in_thread" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubForum">
+      <EntityTypeMapping TypeName="Tellisense_DatabaseModel.SubForum">
+        <MappingFragment StoreEntitySet="SubForum">
+          <ScalarProperty Name="subforum_ID" ColumnName="subforum_ID" />
+          <ScalarProperty Name="subforum_Title" ColumnName="subforum_Title" />
+          <ScalarProperty Name="subforum_description" ColumnName="subforum_description" />
+          <ScalarProperty Name="in_forum" ColumnName="in_forum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thread">
+      <EntityTypeMapping TypeName="Tellisense_DatabaseModel.Thread">
+        <MappingFragment StoreEntitySet="Thread">
+          <ScalarProperty Name="thread_ID" ColumnName="thread_ID" />
+          <ScalarProperty Name="thread_Title" ColumnName="thread_Title" />
+          <ScalarProperty Name="thread_description" ColumnName="thread_description" />
+          <ScalarProperty Name="in_subforum" ColumnName="in_subforum" />
+          <ScalarProperty Name="key_post" ColumnName="key_post" />
+          <ScalarProperty Name="view_count" ColumnName="view_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="Tellisense_DatabaseModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="user_ID" ColumnName="user_ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="e_mail_address" ColumnName="e_mail_address" />
+          <ScalarProperty Name="date_joined" ColumnName="date_joined" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="picture" ColumnName="picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="User_Followed_Thread" TypeName="Tellisense_DatabaseModel.User_Followed_Thread" StoreEntitySet="User_Followed_Thread">
+      <EndProperty Name="Thread">
+        <ScalarProperty Name="thread_ID" ColumnName="thread_followed" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="user_ID" ColumnName="followed_by" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="User_Message_Archive" TypeName="Tellisense_DatabaseModel.User_Message_Archive" StoreEntitySet="User_Message_Archive">
+      <EndProperty Name="Post">
+        <ScalarProperty Name="post_ID" ColumnName="posted_by" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="user_ID" ColumnName="viewed_by" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

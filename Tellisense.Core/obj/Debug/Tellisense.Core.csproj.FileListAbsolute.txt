@@ -1,0 +1,36 @@
+C:\Users\IHEB\Documents\Visual Studio 2015\Projects\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.csprojResolveAssemblyReference.cache
+C:\Users\IHEB\Documents\Visual Studio 2015\Projects\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Documents\Visual Studio 2015\Projects\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Ninject.dll
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.dll
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.dll
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.pdb
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\Ninject.xml
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.xml
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.csprojResolveAssemblyReference.cache
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Downloads\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.csprojResolveAssemblyReference.cache
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Ninject.dll
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.dll
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.dll
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.pdb
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\Ninject.xml
+C:\Users\IHEB\Downloads\Documents\Etude\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.xml
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.csprojResolveAssemblyReference.cache
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\obj\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Core.pdb
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Ninject.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.dll
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Tellisense.Data.pdb
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\Ninject.xml
+C:\Users\IHEB\Desktop\MP.Net\Tellisense\Tellisense.Core\bin\Debug\EntityFramework.xml

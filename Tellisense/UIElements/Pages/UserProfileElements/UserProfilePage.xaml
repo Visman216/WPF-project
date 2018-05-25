@@ -1,0 +1,28 @@
+﻿<local:BasePage x:TypeArguments="core:UserProfileViewModel" x:Class="Tellisense.UserProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tellisense"
+      xmlns:core="clr-namespace:Tellisense.Core;assembly=Tellisense.Core"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1100"
+      Title="UserProfilePage">
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <local:SideContol Grid.Column="0"/>
+
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1"
+               Content="{Binding CurrentSelection, Converter={local:ProfileViewValueConverter}}"/>
+
+        <local:ProfileColumn Grid.Column="2" VerticalAlignment="Top"/>
+        
+    </Grid>
+</local:BasePage>

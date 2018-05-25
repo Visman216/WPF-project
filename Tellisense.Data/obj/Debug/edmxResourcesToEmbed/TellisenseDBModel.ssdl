@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Tellisense_DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Forum">
+    <Key>
+      <PropertyRef Name="forum_ID" />
+    </Key>
+    <Property Name="forum_ID" Type="int" Nullable="false" />
+    <Property Name="forum_Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="forum_description" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="post_ID" />
+    </Key>
+    <Property Name="post_ID" Type="int" Nullable="false" />
+    <Property Name="date_posted" Type="date" Nullable="false" />
+    <Property Name="last_edited" Type="date" />
+    <Property Name="poster" Type="int" Nullable="false" />
+    <Property Name="in_thread" Type="int" Nullable="false" />
+    <Property Name="content" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubForum">
+    <Key>
+      <PropertyRef Name="subforum_ID" />
+    </Key>
+    <Property Name="subforum_ID" Type="int" Nullable="false" />
+    <Property Name="subforum_Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subforum_description" Type="nchar" MaxLength="10" />
+    <Property Name="in_forum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Thread">
+    <Key>
+      <PropertyRef Name="thread_ID" />
+    </Key>
+    <Property Name="thread_ID" Type="int" Nullable="false" />
+    <Property Name="thread_Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="thread_description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="in_subforum" Type="int" Nullable="false" />
+    <Property Name="key_post" Type="int" />
+    <Property Name="view_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_ID" />
+    </Key>
+    <Property Name="user_ID" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="e_mail_address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="date_joined" Type="date" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="picture" Type="image" />
+  </EntityType>
+  <EntityType Name="User_Followed_Thread">
+    <Key>
+      <PropertyRef Name="followed_by" />
+      <PropertyRef Name="thread_followed" />
+    </Key>
+    <Property Name="followed_by" Type="int" Nullable="false" />
+    <Property Name="thread_followed" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Message_Archive">
+    <Key>
+      <PropertyRef Name="viewed_by" />
+      <PropertyRef Name="posted_by" />
+    </Key>
+    <Property Name="viewed_by" Type="int" Nullable="false" />
+    <Property Name="posted_by" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Posts_Threads">
+    <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thread">
+        <PropertyRef Name="thread_ID" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="in_thread" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Users1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_ID" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="poster" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubForums_Forums">
+    <End Role="Forum" Type="Self.Forum" Multiplicity="1" />
+    <End Role="SubForum" Type="Self.SubForum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forum">
+        <PropertyRef Name="forum_ID" />
+      </Principal>
+      <Dependent Role="SubForum">
+        <PropertyRef Name="in_forum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Threads_Posts">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="post_ID" />
+      </Principal>
+      <Dependent Role="Thread">
+        <PropertyRef Name="key_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Threads_SubForums">
+    <End Role="SubForum" Type="Self.SubForum" Multiplicity="1" />
+    <End Role="Thread" Type="Self.Thread" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubForum">
+        <PropertyRef Name="subforum_ID" />
+      </Principal>
+      <Dependent Role="Thread">
+        <PropertyRef Name="in_subforum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Followed_Threads_Threads">
+    <End Role="Thread" Type="Self.Thread" Multiplicity="1" />
+    <End Role="User_Followed_Thread" Type="Self.User_Followed_Thread" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Thread">
+        <PropertyRef Name="thread_ID" />
+      </Principal>
+      <Dependent Role="User_Followed_Thread">
+        <PropertyRef Name="thread_followed" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Followed_Threads_Users">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Followed_Thread" Type="Self.User_Followed_Thread" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_ID" />
+      </Principal>
+      <Dependent Role="User_Followed_Thread">
+        <PropertyRef Name="followed_by" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Message_Archive_Posts">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="User_Message_Archive" Type="Self.User_Message_Archive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="post_ID" />
+      </Principal>
+      <Dependent Role="User_Message_Archive">
+        <PropertyRef Name="posted_by" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Message_Archive_Users">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User_Message_Archive" Type="Self.User_Message_Archive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_ID" />
+      </Principal>
+      <Dependent Role="User_Message_Archive">
+        <PropertyRef Name="viewed_by" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Tellisense_DatabaseModelStoreContainer">
+    <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubForum" EntityType="Self.SubForum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Thread" EntityType="Self.Thread" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Followed_Thread" EntityType="Self.User_Followed_Thread" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Message_Archive" EntityType="Self.User_Message_Archive" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Posts_Threads" Association="Self.FK_Posts_Threads">
+      <End Role="Thread" EntitySet="Thread" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Users1" Association="Self.FK_Posts_Users1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubForums_Forums" Association="Self.FK_SubForums_Forums">
+      <End Role="Forum" EntitySet="Forum" />
+      <End Role="SubForum" EntitySet="SubForum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Threads_Posts" Association="Self.FK_Threads_Posts">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Thread" EntitySet="Thread" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Threads_SubForums" Association="Self.FK_Threads_SubForums">
+      <End Role="SubForum" EntitySet="SubForum" />
+      <End Role="Thread" EntitySet="Thread" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Followed_Threads_Threads" Association="Self.FK_User_Followed_Threads_Threads">
+      <End Role="Thread" EntitySet="Thread" />
+      <End Role="User_Followed_Thread" EntitySet="User_Followed_Thread" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Followed_Threads_Users" Association="Self.FK_User_Followed_Threads_Users">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Followed_Thread" EntitySet="User_Followed_Thread" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Message_Archive_Posts" Association="Self.FK_User_Message_Archive_Posts">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="User_Message_Archive" EntitySet="User_Message_Archive" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Message_Archive_Users" Association="Self.FK_User_Message_Archive_Users">
+      <End Role="User" EntitySet="User" />
+      <End Role="User_Message_Archive" EntitySet="User_Message_Archive" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Tellisense.PositionNode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Tellisense"
+             mc:Ignorable="d" 
+             d:DesignHeight="20" d:DesignWidth="100">
+
+    <Grid Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        
+        <Button Grid.Column="0" FontWeight="UltraLight" Content="&#xf04b;" FontSize="10" FontFamily="FontAwesome" Foreground="#FF9FA6AD"/>
+        <TextBlock Grid.Column="1" Margin="5 0 0 0 " Text="{Binding levelname}"/>
+
+    </Grid>
+</UserControl>

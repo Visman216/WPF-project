@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a434529b900b4c51a7b830e8ef1cfa29" Name="Diagram1">
+        <EntityTypeShape EntityType="Tellisense_DatabaseModel.Forum" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tellisense_DatabaseModel.Post" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tellisense_DatabaseModel.SubForum" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tellisense_DatabaseModel.Thread" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Tellisense_DatabaseModel.User" Width="1.5" PointX="10.375" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.FK_SubForums_Forums" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.FK_Posts_Threads" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.FK_Posts_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.FK_Threads_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.FK_Threads_SubForums" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.User_Followed_Thread" ManuallyRouted="false" />
+        <AssociationConnector Association="Tellisense_DatabaseModel.User_Message_Archive" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

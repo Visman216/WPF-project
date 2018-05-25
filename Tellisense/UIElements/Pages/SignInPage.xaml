@@ -1,0 +1,44 @@
+﻿<local:BasePage x:TypeArguments="core:SignInViewModel" x:Class="Tellisense.SignInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Tellisense"
+      xmlns:core="clr-namespace:Tellisense.Core;assembly=Tellisense.Core"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="SignInPage">
+
+    <Border Background="#FF333337"
+            Width="400"
+            Height="500">
+
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="5" Opacity="0.5" Direction="270"/>
+        </Border.Effect>
+
+        <StackPanel Margin="50 0 50 0" Width="400"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+
+            <Border Margin="50,0,50,50" BorderBrush="White" BorderThickness="1 1 1 1" Height="50">
+                <TextBlock VerticalAlignment="Center" FontSize="30" Foreground="White" FontWeight="Bold" Text="SIGN IN" />
+            </Border>
+
+            <TextBox Text="E-MAIL" Foreground="White" FontWeight="Bold" Background="{x:Null}" BorderThickness="0 0 0 2" BorderBrush="White" FontSize="20" VerticalContentAlignment="Center" 
+                     Margin="50 0 50 20"/>
+
+            <TextBox Text="PASSWORD" Foreground="White" FontWeight="Bold"  Background="{x:Null}" BorderThickness="0 0 0 2" BorderBrush="White" FontSize="20" VerticalContentAlignment="Center" x:Name="PasswordText"
+                     Margin="50 0 50 30"/>
+
+            <Button Style="{x:Null}" Background="#FF333337" Foreground="White" Content="SIGN IN" Width="80" Command="{Binding SignInCommand}" 
+                    FontWeight="Bold" Margin="50,30,50,30" Height="35"/>
+
+            <Button Background="#FF333337" Foreground="White" Content="Create an Account" Command="{Binding SignUpCommand}" 
+                    FontWeight="Bold" Margin="50,0,50,0" Height="25"/>
+
+        </StackPanel>
+
+    </Border>
+</local:BasePage>
